@@ -41,6 +41,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
+  font-style: italic;
 }
 
 .navbar .navbar-nav a {
@@ -211,14 +212,16 @@ body {
   margin: 1rem auto 0.5rem;
 }
 
+.product .row {
+  display: flex;
+}
+
 .product .row .product-img {
-  flex-wrap: wrap;
-  width: 50%;
+  flex: 1 1 45rem;
 }
 
 .product .row .product-img img {
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
 }
 
 /* Contact Section */
@@ -392,7 +395,7 @@ footer .credit a {
 }
 
 /* Mobile Phone */
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   html {
     font-size: 55%;
   }
