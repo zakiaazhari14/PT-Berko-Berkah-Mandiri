@@ -225,6 +225,44 @@ body {
   color: var(--color);
 }
 
+/* kolom tabel */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h4 {
+  color: #000000;
+}
+
+/* Icon  */
+.fa,
+.bi {
+  font-size: 24px; /* Ukuran awal ikon */
+  transition: all 0.3s ease; /* Efek transisi saat memperbesar */
+}
+
+.fa:hover,
+.bi:hover {
+  font-size: 36px; /* Ukuran saat digantikan */
+}
+
+.my-float {
+  position: relative;
+  height: 100px; /* Atur tinggi wadah sesuai kebutuhan */
+  width: 100px; /* Atur lebar wadah sesuai kebutuhan */
+}
+
 /* Produk Section */
 .product h2,
 .contact h2 {
@@ -331,6 +369,24 @@ body {
   color: #fff;
   background-color: var(--primary);
   cursor: pointer;
+}
+
+/* Shorcut Whatsapp */
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(20, 173, 79);
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 22px;
 }
 
 /* Footeer */
