@@ -225,11 +225,58 @@ body {
   color: var(--color);
 }
 
+/* Judul Spare Part */
+.judul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add {
+  margin-top: 160px;
+}
+
+/* Button Ubah dan hapus  */
+.btn {
+  display: inline-block;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Primary button styles */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Danger button styles */
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Margin top styles for buttons */
+.mt-3 {
+  margin-top: 15px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+/* Center the buttons */
+.text-center {
+  text-align: center;
+}
 /* kolom tabel */
 .container {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 
@@ -242,7 +289,7 @@ body {
 .column th,
 .column td {
   padding: 12px 15px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #000000;
   color: #000000;
 }
@@ -391,6 +438,11 @@ body {
   cursor: pointer;
 }
 
+table {
+  overflow: scroll;
+  width: 100vw;
+}
+
 /* Shorcut Whatsapp */
 .float {
   position: fixed;
@@ -469,6 +521,25 @@ footer .kontak {
 
 .partner {
   padding: 1rem;
+}
+
+/* Ubah data */
+label {
+  color: #000000 !important;
+}
+
+.card-header {
+  padding: 100px;
+}
+
+/* CSS untuk mendekati tulisan "Tambah Data" dengan tabel "column" */
+.add {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.column {
+  margin-top: 10px;
 }
 
 /* Media Queries */

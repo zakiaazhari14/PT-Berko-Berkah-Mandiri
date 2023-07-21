@@ -1,3 +1,14 @@
+<?php 
+
+$conn = mysqli_connect("localhost", "root", "");
+
+mysqli_select_db($conn, "pt_bbm");
+
+$result = mysqli_query($conn, "SELECT * FROM spare_part");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,22 +34,22 @@
   <body>
     <!-- Navbar Start -->
     <nav class="navbar">
-      <a href="index.html" class="navbar-logo">PT. Berko Berkah Mandiri</a>
+      <a href="./index.php" class="navbar-logo">PT. Berko Berkah Mandiri</a>
 
       <div class="navbar-nav">
-        <a href="index.html">Beranda</a>
-        <a href="index.html#about">Tentang Kami</a>
+        <a href="./index.php">Beranda</a>
+        <a href="index.php#about">Tentang Kami</a>
         <div class="dropdown">
           <a href="#product" class="dropbtn">Produk</a>
           <div class="dropdown-content">
             <a href="#service1">Alat Uji Kendaraan Bermotor</a>
             <a href="#service2">SIM PKB</a>
-            <a href="spare.html">Spare Part</a>
+            <a href="./spare.php">Spare Part</a>
           </div>
         </div>
         <a href="#galeri">Galeri</a>
         <a href="#forum">Forum</a>
-        <a href="index.html#contact">Kontak</a>
+        <a href="./index.php#contact">Kontak</a>
       </div>
 
       <div class="navbar-extra">
@@ -51,9 +62,13 @@
   </body>
 </html>
 
+    <!-- Judul Start -->
+    <div class="add justify text-center">
+        <a href="tambah.php" class="btn btn-primary">Tambah Data</a>
+      </div>
+    <!-- Judul End -->
     <!-- Table Start -->
-    <body>
-        <div class="container">
+        <div class="container" style="overflow-x:auto">
           <table class="column">
             <thead>
               <tr>
@@ -64,37 +79,28 @@
                 <th>Merek</th>
                 <th>Tipe</th>
                 <th>Tahun Produksi</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>30</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jane Smith</td>
-                <td>28</td>
-                <td>Bandung</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
+            <?php $i = 1 ?>
+            <?php while($row = mysqli_fetch_assoc($result)) : ?>
+                <tr>
+                <td><?= $i ?></td>
+                    <td><?= $row["kode_spare_part"] ?></td>
+                    <td><?= $row["nama_spare_part"] ?></td>
+                    <td><?= $row["spesifikasi"] ?></td>
+                    <td><?= $row["merek"] ?></td>
+                    <td><?= $row["tipe"] ?></td>
+                    <td><?= $row["tahun_produksi"] ?></td>
+                    <td>
+                    <a href="ubah.php?id=<?= $row["id"]; ?>" onclick="return confirm('Ubah Data??')" class="btn btn-primary mt-4">Ubah</a>
+                    <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Hapus Data??')" class="btn btn-danger mt-3">Hapus</a>
 
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Michael Johnson</td>
-                <td>35</td>
-                <td>Surabaya</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-                <td>Jakarta</td>
-              </tr>
+                    </td>
+                </tr>
+                <?php $i++ ?>
+            <?php endwhile ?>
             </tbody>
           </table>
         </div>
@@ -155,3 +161,4 @@
     <script src="js/script.js"></script>
   </body>
 </html>
+

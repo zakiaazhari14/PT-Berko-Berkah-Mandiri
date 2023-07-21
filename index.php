@@ -35,7 +35,7 @@
           <div class="dropdown-content">
               <a href="#service1">Alat Uji Kendaraan Bermotor</a>
               <a href="#service2">SIM PKB</a>
-              <a href="spare.html">Spare Part</a>
+              <a href="./spare.php">Spare Part</a>
           </div>
         </div>
         <a href="#galeri">Galeri</a>
@@ -197,15 +197,15 @@
         <form action="">
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
+            <input type="text" placeholder="Nama" />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
+            <input type="text" placeholder="Gmail" />
           </div>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="text" placeholder="nohp" />
+            <input type="text" placeholder="No Handphone" />
           </div>
           <button type="submit" class="btn">kirim pesan</button>
         </form>
