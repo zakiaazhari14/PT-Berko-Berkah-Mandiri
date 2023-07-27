@@ -41,11 +41,12 @@
         <a href="#galeri">Galeri</a>
         <a href="#forum">Forum</a>
         <a href="#contact">Kontak</a>
+        
       </div>
       
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+      <a href="Admin/login.php"><i data-feather="user"></i></a>
         <a href="#" id="select-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>

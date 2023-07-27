@@ -225,15 +225,18 @@ body {
   color: var(--color);
 }
 
-/* Judul Spare Part */
-.judul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Tulisan Spare Part */
+.spare {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 3rem;
+  color: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
 }
-
+/* Judul Spare Part */
 .add {
-  margin-top: 160px;
+  margin-top: 35px;
+  padding: 3px;
 }
 
 /* Button Ubah dan hapus  */
@@ -261,11 +264,11 @@ body {
 
 /* Margin top styles for buttons */
 .mt-3 {
-  margin-top: 15px;
+  margin-top: 1px;
 }
 
 .mt-4 {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 /* Center the buttons */
@@ -274,10 +277,12 @@ body {
 }
 /* kolom tabel */
 .container {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  padding-top: 4px;
+  margin-bottom: 8%;
 }
 
 .column {
@@ -380,6 +385,7 @@ body {
 .row {
   display: flex;
   justify-content: center;
+  margin: auto;
 }
 
 .piagam-img {
@@ -461,12 +467,56 @@ table {
   margin-top: 22px;
 }
 
+/* Pagination dan pencarian */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+}
+
+.pagination a {
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid var(--bg);
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 3px;
+  margin-right: 81%;
+}
+
+.search-container input[type="text"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  background: #ddd;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 /* Footeer */
 footer {
   background-color: var(--primary);
   text-align: center;
   padding: 1rem 0 3rem;
-  margin-top: 3rem;
+  margin-top: 6rem;
 }
 
 footer .socials {
@@ -630,5 +680,8 @@ label {
 @media (max-width: 600px) {
   html {
     font-size: 55%;
+  }
+  .hero {
+    width: 100%;
   }
 }

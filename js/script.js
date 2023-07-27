@@ -13,3 +13,7 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+
+new DataTable("#example", {
+  pagingType: "full_numbers",
+});

@@ -1,5 +1,5 @@
 <?php 
-require 'Admin/function.php';
+require 'function.php';
 $conn = mysqli_connect("localhost", "root", "");
 
 mysqli_select_db($conn, "pt_bbm");
@@ -16,11 +16,6 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PT Berko Berkah Mandiri</title>
 
-    <!-- Datatables -->
-    <link href="" rel="stylesheet">
-    <script src=""></script>
-    <script src=""></script>
-    <script>https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js</script>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,32 +29,21 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- My Style -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
     <!-- Navbar Start -->
     <nav class="navbar">
-      <a href="./index.php" class="navbar-logo">PT. Berko Berkah Mandiri</a>
-
+      <a href="" class="navbar-logo">PT. Berko Berkah Mandiri</a>
       <div class="navbar-nav">
-        <a href="./index.php">Beranda</a>
-        <a href="index.php#about">Tentang Kami</a>
-        <div class="dropdown">
-          <a href="#product" class="dropbtn">Produk</a>
-          <div class="dropdown-content">
-            <a href="#service1">Alat Uji Kendaraan Bermotor</a>
-            <a href="#service2">SIM PKB</a>
-            <a href="./spare.php">Spare Part</a>
-          </div>
-        </div>
-        <a href="#galeri">Galeri</a>
-        <a href="#forum">Forum</a>
-        <a href="./index.php#contact">Kontak</a>
+        <a href="admin.php">Spare Part</a>
+        <a href="simpkb.php">SIM PKB</a>  
+        <a href="aukb.php">Alat Uji Kendaraan Bermotor</a>    
       </div>
-
+    
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="logout.php" id="log-out"><i data-feather="log-out"></i></a>
         <a href="#" id="select-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>
@@ -73,6 +57,13 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
     </div>
     <!-- Judul End -->
 
+    <!-- Tambah Start -->
+    <div class="add justify text-center">
+        <a href="../tambah.php" class="btn btn-primary">Tambah Data</a>
+      </div>
+    <!-- Tambah End -->
+
+    
     <!-- Pencarian -->
     <div class="search-container">
        <form action="" method="GET">
@@ -83,7 +74,7 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
 
     <!-- Table Start -->
         <div class="container" style="overflow-x:auto">
-          <table id="myTable" class="column">
+          <table class="column">
             <thead>
               <tr>
                 <th>No.</th>
@@ -93,6 +84,7 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
                 <th>Merek</th>
                 <th>Tipe</th>
                 <th>Tahun Produksi</th>
+                <th>Opsi</th>
               </tr>
             </thead>
             <tbody>
@@ -106,16 +98,22 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
                     <td><?= $row["merek"] ?></td>
                     <td><?= $row["tipe"] ?></td>
                     <td><?= $row["tahun_produksi"] ?></td>
+                    <td>
+                    <a href="../ubah.php?id=<?= $row["id"]; ?>" onclick="return confirm('Ubah Data??')" class="btn btn-primary mt-4"></i>Ubah</a>
+                    <a href="../hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Hapus Data??')" class="btn btn-danger mt-3">Hapus</i></a>
+
+                    </td>
                 </tr>
                 <?php $i++ ?>
             <?php endwhile ?>
             </tbody>
           </table>
         </div>
-    <!-- Table END -->
+      </body>
+    <!-- Table Start -->
 
-    <!-- Pagination -->
-    <div class="pagination">
+        <!-- Pagination -->
+        <div class="pagination">
         <?php
         // Calculate total number of pages
         $total_pages = ceil(mysqli_num_rows($result) / $results_per_page);
@@ -125,8 +123,8 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
         echo '<a href="?page=' . $i . '" class="' . ($current_page == $i ? 'active' : '') . '">' . $i . '</a>';
         }
         ?>
-      </div> 
-    
+      </div>  
+
 
 <!-- Footer Start -->
 <footer>
@@ -180,15 +178,6 @@ $result = mysqli_query($conn, "SELECT * FROM spare_part");
 
     <!-- My Javascript -->
     <script src="js/script.js"></script>
-
-    <!-- Datatables -->
-    <script>
-      // ketika dokumen siap
-      $( document ) .ready(function() {
-          $("#myTable") .dataTable();
-      })
-
-    </script>
   </body>
 </html>
 

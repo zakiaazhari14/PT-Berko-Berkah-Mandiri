@@ -12,13 +12,14 @@ function tambah($data)
   // ambil data dari tiap elemen dalam form
   $conn = koneksi();
 
-  $kode_spare_part = htmlspecialchars($data["nama"]);
+  $kode_spare_part = htmlspecialchars($data["kode_spare_part"]);
   $nama_spare_part = htmlspecialchars($data["nama_spare_part"]);
   $spesifikasi = htmlspecialchars($data["spesifikasi"]);
   $merek = htmlspecialchars($data["merek"]);
   $tipe = htmlspecialchars($data["tipe"]);
-  $tahun_produksi = htmlspecialchars($data["tahun_produksi"]);
-  // $poster = htmlspecialchars($data["poster"]);
+
+  // Check if "tahun_produksi" key exists in the $data array before accessing it
+  $tahun_produksi = isset($data["tahun_produksi"]) ? htmlspecialchars($data["tahun_produksi"]) : null;
  
   // query insert data
   $query = "INSERT INTO spare_part
@@ -37,14 +38,14 @@ if (isset($_POST["tambah"])) {
     echo "
             <script>
                 alert('data berhasil ditambahkan')
-                document.location.href = 'spare.php';
+                document.location.href = 'Admin/admin.php';
             </script>
         ";
   } else {
     echo "
     <script>
         alert('data gagal ditambahkan')
-        document.location.href = 'spare.php';
+        document.location.href = 'Admin/admin.php';
     </script>
 ";
   }
@@ -82,7 +83,6 @@ if (isset($_POST["tambah"])) {
       <div class="card my-auto">
         <div class="card-header text-center text-white">
           <h2 style="color: black;">Tambah Data</h2>
-          <hr class="text-white">
         </div>
         <div class="card-body text-white">
           <form action="" method="post" enctype="multipart/form-data">
@@ -107,11 +107,11 @@ if (isset($_POST["tambah"])) {
               <input type="text" class="form-control" name="tipe" id="tipe" required>
             </div>
             <div class="form-group" style="color:black">
-              <label for="tahun_prosduksi">Tahun Produksi : </label>
-              <input type="text" class="form-control" name="tahun_prosduksi" id="tahun_prosduksi" required>
+              <label for="tahun_produksi">Tahun Produksi : </label>
+              <input type="text" class="form-control" name="tahun_produksi" id="tahun_produksi" required>
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-2" name="tambah">Tambah Data</button>
-            <a href="spare.php" class="btn btn-danger w-100 mt-2">Kembali</a>
+            <a href="Admin/admin.php" class="btn btn-danger w-100 mt-2">Kembali</a>
           </form>
         </div>      
       </div>

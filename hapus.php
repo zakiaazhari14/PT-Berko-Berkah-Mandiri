@@ -33,14 +33,14 @@ if (hapus($id) > 0) {
   echo "
             <script>
                 alert('data berhasil dihapuss!');
-                document.location.href = 'spare.php';
+                document.location.href = 'Admin/admin.php';
             </script>
         ";
 } else {
   echo "
             <script>
                 alert('data gagal ditambahkann!');
-                document.location.href = 'spare.php';
+                document.location.href = 'Admin/admin.php';
             </script>
         ";
 }

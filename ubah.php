@@ -107,7 +107,6 @@ if (isset($_POST["ubah"])) {
       <div class="card my-auto">
         <div class="card-header text-center text-white" >
           <h2 style= "color: black;">Ubah Data</h2>
-          <hr class="text-white">
         </div>
         <div class="card-body text-white">
           <form action="" method="post" enctype="multipart/form-data">
@@ -137,7 +136,7 @@ if (isset($_POST["ubah"])) {
               <input type="text" class="form-control" name="tahun_produksi" id="tahun_produksi" required value="<?= $b["tahun_produksi"]; ?>">
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-2" name="ubah">Ubah Data</button>
-            <a href="spare.php" class="btn btn-danger w-100 mt-2">Kembali</a>
+            <a href="Admin/admin.php" class="btn btn-danger w-100 mt-2">Kembali</a>
           </form>
         </div>
         <div class="card-footer text-center text-white">
